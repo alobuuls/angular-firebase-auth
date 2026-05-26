@@ -1,0 +1,58 @@
+<div class="wrapper">
+  <div *ngIf="!loading" class="body">
+    <img class="logo" src="../../../assets/images/login.png" alt="Regístrarse" title="Regístrarse">
+
+    <h1>Registrarse</h1>
+
+    <form (ngSubmit)="register()" [formGroup]="registerUser">
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" formControlName="email" placeholder="name@example.com">
+        <label>Correo</label>
+
+        <span *ngIf="registerUser.get('email')?.hasError('required') && registerUser.get('email')?.touched" class="text-danger errorLabel">
+          El <strong>correo</strong> es requerido
+        </span>
+
+        <span *ngIf="registerUser.get('email')?.hasError('email') && registerUser.get('email')?.touched" class="text-danger errorLabel">
+          El <strong>correo</strong> es invalido
+        </span>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" formControlName="password" placeholder="Contraseña">
+        <label>Contraseña</label>
+
+        <span *ngIf="registerUser.get('password')?.hasError('required') && registerUser.get('password')?.touched" class="text-danger errorLabel">
+          La <strong>contraseña</strong> es requerida
+        </span>
+
+        <span *ngIf="registerUser.get('password')?.hasError('minlength') && registerUser.get('password')?.touched" class="text-danger errorLabel">
+          El <strong>contraseña</strong> debe tener 6 caracteres
+        </span>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Repetir Contraseña">
+        <label>Repetir Contraseña</label>
+
+         <span *ngIf="registerUser.get('confirmPassword')?.hasError('required') && registerUser.get('confirmPassword')?.touched" class="text-danger errorLabel">
+          La <strong>contraseña</strong> es requerida
+        </span>
+
+        <span *ngIf="registerUser.get('confirmPassword')?.hasError('minlength') && registerUser.get('confirmPassword')?.touched" class="text-danger errorLabel">
+          El <strong>contraseña</strong> debe tener 6 caracteres
+        </span>
+      </div>
+
+      <div class="d-grid gap-2 mb-3">
+        <button class="btn btn-primary btn-lg" [disabled]="registerUser.invalid" type="submit">
+          Regístrarse
+        </button>
+      </div>
+
+      <a [routerLink]="['/login']">Volver</a>
+    </form>
+  </div>
+
+  <app-shared-loading *ngIf="loading"></app-shared-loading>
+</div>
