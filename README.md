@@ -1,27 +1,216 @@
-# AngularLoginFirebase3
+# 🔐 Angular Firebase Auth System
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+Aplicación desarrollada en **Angular 16** que implementa un sistema completo de autenticación usando **Firebase Authentication**.
 
-## Development server
+Permite:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Registro de usuarios  
+- Inicio de sesión  
+- Recuperación de contraseña  
+- Verificación por correo electrónico  
+- Protección de rutas  
+- Cierre de sesión  
+- Manejo de errores Firebase  
+- Estados de carga (loading)  
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## ⚙️ Requisitos del sistema
 
-## Build
+Antes de ejecutar el proyecto asegúrate de tener instalado:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- 📦 **Node.js:** `v18+` *(preferiblemente v18.10.0)*
+- 📦 **npm:** `v9+`
+- 🅰️ **Angular CLI:** `v16.x`
+- 🔥 **Cuenta Firebase**
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 🔍 Verificar versiones
 
-## Running end-to-end tests
+```bash
+node -v
+npm -v
+ng version
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+## 🚀 Instalación
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### 1️⃣ Clonar repositorio
+
+```bash
+git clone <URL_DEL_REPO>
+
+cd angular-firebase-auth-system
+```
+
+### 2️⃣ Instalar dependencias
+
+```bash
+npm install
+```
+
+---
+
+## 🔥 Configurar Firebase
+
+Editar o crear:
+
+```bash
+src/app/environments/environments.ts
+```
+
+Agregar configuración:
+
+```ts
+export const environment = {
+  production: false,
+  firebase: {
+    apiKey: '',
+    authDomain: '',
+    projectId: '',
+    storageBucket: '',
+    messagingSenderId: '',
+    appId: ''
+  }
+};
+```
+
+Obtén los datos desde:
+
+Firebase Console → Project Settings → SDK setup
+
+---
+
+## ▶️ Ejecutar proyecto
+
+```bash
+ng serve
+```
+
+Abrir en navegador:
+
+```bash
+http://localhost:4200
+```
+
+---
+
+## 🧠 Arquitectura del proyecto
+
+### 📦 Components
+
+```bash
+components/
+├── login/
+├── register/
+├── password-recover/
+├── verify-email/
+├── dashboard/
+├── shared-loading/
+```
+
+---
+
+### ⚙️ Services
+
+```bash
+services/
+├── firebase-code-error.service.ts
+```
+
+Responsable de traducir errores Firebase:
+
+```txt
+auth/user-not-found → El usuario no existe
+```
+
+---
+
+### 🔐 Authentication Flow
+
+```txt
+Registro
+ ↓
+Verificación Email
+ ↓
+Login
+ ↓
+Dashboard protegido
+ ↓
+Logout
+```
+
+---
+
+## ⚙️ Funcionalidades principales
+
+✔ Registro de usuarios  
+✔ Login de usuarios  
+✔ Logout  
+✔ Recuperación de contraseña  
+✔ Verificación de email  
+✔ Dashboard protegido  
+✔ Manejo de errores Firebase  
+✔ Loading spinner  
+✔ Formularios reactivos  
+✔ Validaciones Angular  
+✔ Notificaciones con Toastr  
+
+---
+
+## 🛠 Tecnologías utilizadas
+
+- 🅰️ Angular 16  
+- 🔥 Firebase Authentication  
+- ⚡ TypeScript  
+- 🧾 Reactive Forms  
+- 🔔 ngx-toastr  
+- 🌐 Angular Router  
+- ☁ AngularFire  
+
+---
+
+## 📁 Estructura del proyecto
+
+```bash
+src/app/
+
+components/
+├── dashboard
+├── login
+├── register
+├── password-recover
+├── verify-email
+
+services/
+├── firebase-code-error.service
+
+utils/
+├── firebase-code-error.ts
+
+shared-loading/
+├── shared-loading.component
+```
+
+---
+
+## 🔥 Buenas prácticas implementadas
+
+- Separación de componentes  
+- Servicios reutilizables  
+- Manejo centralizado de errores  
+- Reactive Forms  
+- Validaciones frontend  
+- Environment variables  
+- Loading states  
+- Routing protegido  
+- Código desacoplado  
+
+---
+
+## 📄 Licencia
+
+Proyecto desarrollado con fines educativos y para portafolio.
