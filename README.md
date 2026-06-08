@@ -1,32 +1,76 @@
-# 🔐 Angular Firebase Auth System
+<h1 align="center">🔐 Angular Firebase Auth</h1>
 
-Aplicación desarrollada en **Angular 16** que implementa un sistema completo de autenticación usando **Firebase Authentication**.
+<p align="center">
+  <img src="https://img.shields.io/badge/Angular-16-DD0031?logo=angular&logoColor=white" alt="Angular" />
+  <img src="https://img.shields.io/badge/Firebase-Authentication-FFCA28?logo=firebase&logoColor=black" alt="Firebase" />
+  <img src="https://img.shields.io/badge/AngularFire-Integration-FFCA28?logo=firebase&logoColor=black" alt="AngularFire" />
+  <img src="https://img.shields.io/badge/Status-Completed-brightgreen" alt="Completed" />
+</p>
 
-Permite:
-
-- Registro de usuarios  
-- Inicio de sesión  
-- Recuperación de contraseña  
-- Verificación por correo electrónico  
-- Protección de rutas  
-- Cierre de sesión  
-- Manejo de errores Firebase  
-- Estados de carga (loading)  
+<p align="center">
+  <a href="https://github.com/alobuuls/angular-firebase-auth" target="_blank"><img src="https://img.shields.io/badge/GitHub-Repository-181717?logo=github&logoColor=white" alt="Repository" /></a>
+  <a href="https://github.com/alobuuls/angular-firebase-auth/stargazers" target="_blank"><img src="https://img.shields.io/github/stars/alobuuls/angular-firebase-auth?style=social" alt="GitHub Stars" /></a>
+  <a href="https://github.com/alobuuls/angular-firebase-auth/commits/main" target="_blank"><img src="https://img.shields.io/github/last-commit/alobuuls/angular-firebase-auth" alt="Last Commit" /></a>
+</p>
 
 ---
 
-## ⚙️ Requisitos del sistema
+## 📑 Table of Contents
 
-Antes de ejecutar el proyecto asegúrate de tener instalado:
+* [🔐 Angular Firebase Auth](#-angular-firebase-auth)
 
-- 📦 **Node.js:** `v18+` *(preferiblemente v18.10.0)*
-- 📦 **npm:** `v9+`
+  * [🌐 Live Demo](#-live-demo)
+  * [📖 Description](#-description)
+  * [⚙️ System Requirements](#️-system-requirements)
+  * [🚀 Project Installation](#-project-installation)
+  * [🔥 Firebase Configuration](#-firebase-configuration)
+  * [▶️ Run the Project](#️-run-the-project)
+  * [🧠 Project Architecture](#-project-architecture)
+  * [✨ Features](#-features)
+  * [🛠 Technologies Used](#-technologies-used)
+  * [📁 Project Structure](#-project-structure)
+  * [🔥 Best Practices Implemented](#-best-practices-implemented)
+  * [🎯 Project Goal](#-project-goal)
+  * [📄 License](#-license)
+
+---
+
+## 🌐 Live Demo
+
+🔗 https://alobuuls.github.io/angular-firebase-auth/
+
+---
+
+## 📖 Description
+
+> [!NOTE]
+> An Angular 16 application that implements a complete authentication workflow using Firebase Authentication and AngularFire.
+
+The project demonstrates user registration, login, password recovery, email verification, protected areas, centralized Firebase error handling, loading states, and modern Angular development practices.
+
+---
+
+## ⚙️ System Requirements
+
+Before running the project, make sure you have installed:
+
+- 📦 **Node.js:** `v16.14.x – v18.x` *(recommended: v18.10.0 LTS)*
+- 📦 **npm:** `v8+`
 - 🅰️ **Angular CLI:** `v16.x`
-- 🔥 **Cuenta Firebase**
+- 🔥 **Firebase Project**
+
+## Recommended using nvm
+
+```bash
+nvm install 18
+nvm use 18
+```
 
 ---
 
-## 🔍 Verificar versiones
+## 🔍 Verify Installed Versions
+
+Run the following commands in your terminal:
 
 ```bash
 node -v
@@ -36,17 +80,17 @@ ng version
 
 ---
 
-## 🚀 Instalación
+## 🚀 Project Installation
 
-### 1️⃣ Clonar repositorio
+### 1️⃣ Clone the repository
 
 ```bash
-git clone <URL_DEL_REPO>
+git clone git@github.com:alobuuls/angular-firebase-auth.git
 
-cd angular-firebase-auth-system
+cd angular-firebase-auth
 ```
 
-### 2️⃣ Instalar dependencias
+### 2️⃣ Install dependencies
 
 ```bash
 npm install
@@ -54,15 +98,15 @@ npm install
 
 ---
 
-## 🔥 Configurar Firebase
+## 🔥 Firebase Configuration
 
-Editar o crear:
+Create or update:
 
-```bash
+```ts
 src/app/environments/environments.ts
 ```
 
-Agregar configuración:
+Add your Firebase configuration:
 
 ```ts
 export const environment = {
@@ -73,144 +117,190 @@ export const environment = {
     projectId: '',
     storageBucket: '',
     messagingSenderId: '',
-    appId: ''
-  }
+    appId: '',
+  },
 };
 ```
 
-Obtén los datos desde:
+Enable the following provider:
 
-Firebase Console → Project Settings → SDK setup
+* Email / Password Authentication
+
+From:
+
+```text
+Firebase Console
+→ Authentication
+→ Sign-in method
+```
 
 ---
 
-## ▶️ Ejecutar proyecto
+## ▶️ Run the Project
+
+Start the development server:
 
 ```bash
 ng serve
 ```
 
-Abrir en navegador:
+Then open:
 
-```bash
+```text
 http://localhost:4200
 ```
 
 ---
 
-## 🧠 Arquitectura del proyecto
+## 🧠 Project Architecture
 
-### 📦 Components
+The application follows a component-based architecture with centralized Firebase error management and authentication workflows.
 
-```bash
-components/
-├── login/
-├── register/
-├── password-recover/
-├── verify-email/
-├── dashboard/
-├── shared-loading/
+### 🔥 Authentication Components
+
+Responsible for:
+
+* User registration
+* User login
+* Password recovery
+* Email verification
+* User interaction flows
+
+### ⚙️ Firebase Error Service
+
+Responsible for:
+
+* Firebase error translation
+* Error message centralization
+* User-friendly notifications
+
+### ⏳ Shared Loading Component
+
+Responsible for:
+
+* Loading state visualization
+* Reusable spinner implementation
+* User feedback during requests
+
+### 🏠 Dashboard Component
+
+Responsible for:
+
+* Authenticated user area
+* Protected content
+* Session management
+
+---
+
+## ✨ Features
+
+* 🔑 User Login
+* 📝 User Registration
+* 📧 Email Verification
+* 🔄 Password Recovery
+* 🚪 Logout Functionality
+* 🔥 Firebase Authentication Integration
+* ⚙️ Firebase Error Handling
+* ⏳ Loading States
+* 📋 Reactive Forms
+* ✅ Angular Form Validations
+* 🔔 Toastr Notifications
+* 🚀 AngularFire Integration
+
+---
+
+## 🛠 Technologies Used
+
+| Technology | Purpose |
+|------------|---------|
+| Angular 16 | Front-End Framework |
+| TypeScript | Application Logic |
+| Firebase Authentication | User Authentication |
+| AngularFire | Firebase Integration |
+| Reactive Forms | Form Management |
+| Angular Router | Navigation |
+| ngx-toastr | Notifications |
+| RxJS | Reactive Programming |
+
+---
+
+## 📁 Project Structure
+
+```text
+angular-firebase-auth/
+
+├── src/
+│
+├── app/
+│   ├── components/
+│   │   ├── login/
+│   │   ├── register/
+│   │   ├── password-recover/
+│   │   ├── verify-email/
+│   │   └── dashboard/
+│   │
+│   ├── services/
+│   │   └── firebase-code-error.service.ts
+│   │
+│   ├── shared-loading/
+│   │   ├── shared-loading.component.ts
+│   │   └── shared-loading.component.html
+│   │
+│   ├── utils/
+│   │   └── firebase-code-error.ts
+│   │
+│   ├── environments/
+│   │   ├── environments.ts
+│   │   └── environments.prod.ts
+│   │
+│   ├── app-routing.module.ts
+│   ├── app.component.ts
+│   └── app.module.ts
+│
+├── firebase.json
+├── angular.json
+├── package.json
+└── README.md
 ```
 
 ---
 
-### ⚙️ Services
+## 🔥 Best Practices Implemented
 
-```bash
-services/
-├── firebase-code-error.service.ts
-```
-
-Responsable de traducir errores Firebase:
-
-```txt
-auth/user-not-found → El usuario no existe
-```
-
----
-
-### 🔐 Authentication Flow
-
-```txt
-Registro
- ↓
-Verificación Email
- ↓
-Login
- ↓
-Dashboard protegido
- ↓
-Logout
-```
+* Reactive Forms
+* Separation of Concerns
+* Centralized Error Handling
+* Reusable Components
+* Service-based Architecture
+* Environment Configuration
+* Loading State Management
+* Strong Typing with TypeScript
+* Modular Project Structure
+* Firebase Integration Best Practices
 
 ---
 
-## ⚙️ Funcionalidades principales
+## 🎯 Project Goal
 
-✔ Registro de usuarios  
-✔ Login de usuarios  
-✔ Logout  
-✔ Recuperación de contraseña  
-✔ Verificación de email  
-✔ Dashboard protegido  
-✔ Manejo de errores Firebase  
-✔ Loading spinner  
-✔ Formularios reactivos  
-✔ Validaciones Angular  
-✔ Notificaciones con Toastr  
+Practice and strengthen Angular authentication concepts through the implementation of a real-world Firebase Authentication workflow.
 
----
+Key concepts covered:
 
-## 🛠 Tecnologías utilizadas
-
-- 🅰️ Angular 16  
-- 🔥 Firebase Authentication  
-- ⚡ TypeScript  
-- 🧾 Reactive Forms  
-- 🔔 ngx-toastr  
-- 🌐 Angular Router  
-- ☁ AngularFire  
+* Firebase Authentication
+* AngularFire
+* Reactive Forms
+* Password Recovery
+* Email Verification
+* Error Handling
+* Loading States
+* Notifications
+* TypeScript Best Practices
+* Front-End Architecture
 
 ---
 
-## 📁 Estructura del proyecto
+## 📄 License
 
-```bash
-src/app/
+This project is intended for educational and portfolio purposes.
 
-components/
-├── dashboard
-├── login
-├── register
-├── password-recover
-├── verify-email
-
-services/
-├── firebase-code-error.service
-
-utils/
-├── firebase-code-error.ts
-
-shared-loading/
-├── shared-loading.component
-```
-
----
-
-## 🔥 Buenas prácticas implementadas
-
-- Separación de componentes  
-- Servicios reutilizables  
-- Manejo centralizado de errores  
-- Reactive Forms  
-- Validaciones frontend  
-- Environment variables  
-- Loading states  
-- Routing protegido  
-- Código desacoplado  
-
----
-
-## 📄 Licencia
-
-Proyecto desarrollado con fines educativos y para portafolio.
+Created by **Alondra Francisco**.
